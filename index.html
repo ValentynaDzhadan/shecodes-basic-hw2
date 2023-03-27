@@ -90,5 +90,31 @@
 
     <button class="button">Change city</button>
     <p class="rights">Coded by Val Dzhadan</p>
+    <script>
+      function changeIcon(temperature) {
+        let icon = document.querySelector(".icon");
+        if (temperature < 0) {
+          icon.innerHTML = "🥶";
+        }
+        else{
+          icon.innerHTML = "🌤";
+        }
+      }
+
+      function changeHeading(temperature, city) {
+        let heading = document.querySelector("h1");
+        heading.innerHTML = `Current ${temperature}°C in ${city}`;
+      }
+
+      function changeCity() {
+        let city = prompt("What city do you live in?");
+        let temperature = prompt("What temperature is it?");
+        changeHeading(temperature, city)
+        changeIcon(temperature);
+      }
+
+      let changeCityButton = document.querySelector("button");
+      changeCityButton.addEventListener("click", changeCity);
+    </script>
   </body>
 </html>
